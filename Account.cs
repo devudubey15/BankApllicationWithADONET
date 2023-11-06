@@ -18,11 +18,40 @@ namespace ConsoleApp3
 {
 	public abstract class Account
 	{
+		public Account(string acType, int id, string name,double balance) { 
+			AccountType = acType;
+			Id = id;
+			Name = name;
+			Balance = balance;
+		}
+
+		public string AccountType { get; set; }
 		public int Id { get; set; }
-		public string Name { get; set; }
+		public string Name {
+			set
+			{
+				if (Name.Length<2 || Name.Length > 15)
+				{
+					throw new Exception("Name should be of greter than 2 letter and lesser than 15 letters");
+				}
+				else
+				{
+					Name = value;
+				}	
+				
+			}
+			get
+			{
+				return Name;
+			}
+		}
 		protected double Balance { get; set; }
 
 		public abstract void Widthdraw(double amt);
-		public abstract void Deposite(double amt);
+
+		public void Deposite(double amt)
+		{
+			Balance += amt;
+		}
 	}
 }

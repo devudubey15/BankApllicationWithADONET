@@ -14,24 +14,25 @@ namespace ConsoleApp3
 	public class Message {
 		public static  event msg eventmsg;
 
-		public Message()
+		public Message(string s)
 		{
 			eventmsg += new msg(TextMessage); 
 			eventmsg += new msg(Email);
+			eventmsg(s);
 
 		}
 		static DateTime dateTime = DateTime.Now;
 		public static void TextMessage(string s)
 		{
 			
-			string str = string.Format($"Message: Dear user A/C X5638 debited by {} on date" +
+			string str = string.Format($"Message: Dear user A/C X5638 debited by {s} on date" +
 										$" {dateTime} trf to TINKU RAJARAM CH Refno 367628226681." +
 										$" If not u? call 1800111109. -BOB");
 			Console.WriteLine( str );
 		}
 		public static void Email(string s)
 		{
-			string str = string.Format($"Email: Dear user A/C X5638 debited by {} on date" +
+			string str = string.Format($"Email: Dear user A/C X5638 debited by {s} on date" +
 										$" {dateTime} trf to TINKU RAJARAM CH Refno 367628226681." +
 										$" If not u? call 1800111109. -BOB");
 		}

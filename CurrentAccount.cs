@@ -14,12 +14,10 @@ namespace ConsoleApp3
 	{
 		public override  void Widthdraw(double amt)
 		{
-			amt = amt * 5;
+			Balance = Balance - amt;
+			string str = string.Format($"{amt} is deducted from your Saving Account");
+			Message message = new Message(str);
 		}
 
-		 public override  void Deposite(double amt)
-		{
-
-		}
 	}
 }

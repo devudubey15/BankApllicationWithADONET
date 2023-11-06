@@ -36,6 +36,7 @@ using System.Xml.Linq;
 //Your application should handle all exception.
 //Write user Define Exception for insufficient balance[If user try to withdraw more then
 //minbalance in Saving Account] This class will print user name and transaction detail in a file.
+
 //In Account class Create event. When use withdraw money it should send SMS and E-mail [Complete
 //Publisher subscriber design pattern]
 
@@ -54,7 +55,6 @@ namespace BankApplication
 		{
 			List<Account> accounts = new List<Account>();
 
-			
 
 		}
 		public void Transaction()

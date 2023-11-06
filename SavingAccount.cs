@@ -21,17 +21,46 @@ namespace ConsoleApp3
 	 class SavingAccount : Account
 	{
 		const double minbala = 1000;
+		
 
 		public override void Widthdraw(double amt)
 		{
-			Balance = Balance + amt;
-			string str = string.Format("{Balance} id deducted from your Saving Account");
-			 Message.eventmsg(str);
+			if(Balance > minbala)
+			{
+				Balance = Balance - amt;
+				string str = string.Format($"{amt} id deducted from your Saving Account");
+				Message message = new Message(str);
+			}
+			else
+			{
+				throw new Exception($"you cannot withdraw further your account balance is {Balance}");
+			}
 		}
 
-		public override void Deposite(double amt)
-		{
+		
 
+		public static double Payinterest(Employee e)
+		{
+			SavingAccount account = new SavingAccount();
+
+			if (e == null) 
+			{
+				throw new Exception("Employee is not registered in the Database");
+			}
+			if(e.Balance < account.Balance && e.Balance > account.Balance)
+			{
+				throw new Exception("Employees Balance Doesn't match");
+			}
+			if (e.InterestRate <= 0)
+			{
+				throw new Exception("Bank is not providing him any Intrest ");
+			}
+
+			double interest = e.Balance * e.InterestRate;
+
+			e.Balance += interest;
+
+			return interest;
 		}
 
 	}
