@@ -45,7 +45,7 @@ using System.Xml.Linq;
 namespace BankApplication
 {
 	internal class BankOfBaroda
-	{
+	{ 
 		static BankOfBaroda()
 		{
 			Console.WriteLine("Bank Of Baroda");
@@ -54,8 +54,12 @@ namespace BankApplication
 		static void Main(string[] args)
 		{
 			List<Account> accounts = new List<Account>();
+			accounts.Add(new SavingAccount(89, "hfuyf", 800000));
+			accounts.Add(new CurrentAccount(91, "fhhjkk", 800000));
+			foreach (var l in accounts)
+					Console.WriteLine(l);
 
-
+			Console.ReadLine();
 		}
 		public void Transaction()
 		{

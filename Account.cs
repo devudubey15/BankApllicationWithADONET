@@ -18,6 +18,7 @@ namespace ConsoleApp3
 {
 	public abstract class Account
 	{
+		string str;
 		public Account(string acType, int id, string name,double balance) { 
 			AccountType = acType;
 			Id = id;
@@ -30,19 +31,20 @@ namespace ConsoleApp3
 		public string Name {
 			set
 			{
-				if (Name.Length<2 || Name.Length > 15)
+				if (value.Length<2 || value.Length > 15)
 				{
 					throw new Exception("Name should be of greter than 2 letter and lesser than 15 letters");
 				}
 				else
 				{
-					Name = value;
+					
+					str = value;
 				}	
 				
 			}
 			get
 			{
-				return Name;
+				return str;
 			}
 		}
 		protected double Balance { get; set; }

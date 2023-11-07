@@ -20,8 +20,14 @@ namespace ConsoleApp3
 {
 	 class SavingAccount : Account
 	{
+		public static double bal;
 		const double minbala = 1000;
-		
+		const string acType = "SAVING";
+		public SavingAccount(int id, string name, double balance) :
+			base(acType, id, name, balance)
+		{
+			 bal = Balance;
+		}
 
 		public override void Widthdraw(double amt)
 		{
@@ -40,14 +46,12 @@ namespace ConsoleApp3
 		
 
 		public static double Payinterest(Employee e)
-		{
-			SavingAccount account = new SavingAccount();
-
+		{ 
 			if (e == null) 
 			{
 				throw new Exception("Employee is not registered in the Database");
 			}
-			if(e.Balance < account.Balance && e.Balance > account.Balance)
+			if(e.Balance!= bal)
 			{
 				throw new Exception("Employees Balance Doesn't match");
 			}
