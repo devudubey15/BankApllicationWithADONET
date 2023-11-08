@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection.Emit;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,26 +45,139 @@ using System.Xml.Linq;
 
 namespace BankApplication
 {
-	internal class BankOfBaroda
-	{ 
+	public class BankOfBaroda
+	{
+
+		static int id;
+		static string name;
+		static double balance;
+		static double interestRate;
+
+		static List<Account> accounts = new List<Account>();
 		static BankOfBaroda()
 		{
 			Console.WriteLine("Bank Of Baroda");
 		}
 
+		public static void OpenSavingAccount(int id, string name, double balance )
+		{
+			accounts.Add(new SavingAccount(id, name, balance));
+			Console.WriteLine(string.Format($"you opened the saving account with these details {accounts.Last()} "));	
+		}
+		public static void OpenCurrentAccount(int id, string name , double balance )
+		{
+			accounts.Add(new CurrentAccount( id, name , balance));
+			Console.WriteLine(string.Format($"you opened the Current account with these details {accounts.Last()} "));
+		}
+
 		static void Main(string[] args)
 		{
-			List<Account> accounts = new List<Account>();
-			accounts.Add(new SavingAccount(89, "hfuyf", 800000));
-			accounts.Add(new CurrentAccount(91, "fhhjkk", 800000));
-			foreach (var l in accounts)
-					Console.WriteLine(l);
+			
+
+
+			
+
+			
+			while(true)
+			{
+				Console.WriteLine("Enter your options");
+				Console.WriteLine("1: To open your Bank Account");
+				Console.WriteLine("2: to check you Balance");
+				Console.WriteLine("3: To Wthdraw money");
+				Console.WriteLine("4: To Deposite money");
+				Console.WriteLine("5: To Exit ");
+
+				switch (Convert.ToInt32(Console.ReadLine()))
+				{
+					case 1:
+						{
+							Console.WriteLine("enter your choice which type of account you want to open");
+							Console.WriteLine("1. for Saving Account ");
+							Console.WriteLine("2. for Current Account");
+							Console.WriteLine("3. To Get back in Main Menu");
+							switch (Convert.ToInt32(Console.ReadLine()))
+							{
+								case 1:
+									{
+										Console.WriteLine("please enter the details to open Saving Account");
+										Console.Write("\n\n Please Enter Your Name :");
+										name = Console.ReadLine();
+										Console.Write("\n\n Please Choose Your id (all numeric):");
+										id = Convert.ToInt32(Console.ReadLine());
+										Console.Write("\n\n Please add Balance in Your account:");
+										balance = Convert.ToDouble(Console.ReadLine());
+										Console.WriteLine("\n\n please enter the intrest rate given by the bank");
+										interestRate = Convert.ToDouble(Console.ReadLine());
+										OpenSavingAccount(id, name, balance);
+										break;
+									}
+								case 2:
+									{
+										Console.WriteLine("please enter the details to open Current Account");
+										Console.Write("\n\n Please Enter Your Name :");
+										name = Console.ReadLine();
+										Console.Write("\n\n Please Choose Your id (all numeric):");
+										id = Convert.ToInt32(Console.ReadLine());
+										Console.Write("\n\n Please add Balance in Your account:");
+										balance = Convert.ToDouble(Console.ReadLine());
+										Console.WriteLine("\n\n please enter the intrest rate given by the bank");
+										interestRate = Convert.ToDouble(Console.ReadLine());
+										OpenCurrentAccount(id, name, balance);
+										break;
+									}
+								case 3:
+									{
+
+										break;
+									}
+								default:
+									{
+										Console.WriteLine("please choose your option carefully");
+										break;
+									}
+
+
+							}
+							break;
+						}
+					case 2:
+						{
+							Console.WriteLine("Enter Your Id to check your Balance");
+							id = Convert.ToInt32(Console.ReadLine());
+							Account ac = accounts.Find(x => x.Id == id);
+
+							Console.WriteLine($"Hey ,{ac.Name} your account balance is: {ac.Balance}");
+
+							break;
+						}
+					case 3:
+						{
+							Console.WriteLine("Enter your Id, to withdraw money from your account");
+							id = Convert.ToInt32(Console.ReadLine());
+							Console.WriteLine("Enter the ammount you want to Withdraw");
+							Account ac = accounts.Find(x => x.Id == id);
+							ac.Widthdraw(Convert.ToDouble(Console.ReadLine()));
+							break;
+						}
+					case 4:
+						{
+							Console.WriteLine("Enter the ID and Ammount to  Deposit in your Account:");
+							accounts.Find(x => x.Id == Convert.ToInt32(Console.ReadLine())).Deposite(Convert.ToDouble(Console.ReadLine()));
+							break;
+						}
+					case 5:
+						{
+							Console.WriteLine("YOU CHOOSE TO EXIT FROM THE ACCOUNT APPICATION");
+							Environment.Exit(0);
+							break;
+						}
+				}
+
+			}
+
 
 			Console.ReadLine();
 		}
-		public void Transaction()
-		{
-
-		}
+		
 	}
 }

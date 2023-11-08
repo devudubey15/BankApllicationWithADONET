@@ -47,7 +47,7 @@ namespace ConsoleApp3
 				return str;
 			}
 		}
-		protected double Balance { get; set; }
+		public double Balance { get; set; }
 
 		public abstract void Widthdraw(double amt);
 

@@ -48,5 +48,9 @@ namespace ConsoleApp3
 
 			return interest;
 		}
+		public override string ToString()
+		{
+			return string.Format($"AccountType: {AccountType} , Id {Id} , Name: {Name}, Balance: {Balance}");
+		}
 	}
 }
