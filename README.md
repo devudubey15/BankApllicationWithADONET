@@ -36,7 +36,7 @@ This repository contains a simple Bank Application implemented in C# with ADO.NE
    ```bash
    git clone https://github.com/your-username/Bank_application_with_ADO.git
 
-   ## Usage
+
 
 1. **Open in Visual Studio:**
    - Open the solution in Visual Studio or your preferred C# development environment.
