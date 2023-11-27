@@ -32,6 +32,30 @@ This repository contains a simple Bank Application implemented in C# with ADO.NE
   - Exception handling for various scenarios.
 
 ## Usage
-1. **Clone the Repository:**
+ **Clone the Repository:**
    ```bash
    git clone https://github.com/your-username/Bank_application_with_ADO.git
+
+   ## Usage
+
+1. **Open in Visual Studio:**
+   - Open the solution in Visual Studio or your preferred C# development environment.
+
+2. **Build and Run:**
+   - Build and run the application.
+
+3. **Follow the Prompts:**
+   - Create accounts, perform transactions, and observe the notifications.
+
+## Implementation Details
+
+- **ADO.NET is used for data storage.**
+- **The Transaction class logs user transactions, and insufficient balance exceptions are logged in a file.**
+- **The publisher-subscriber pattern is implemented for sending notifications.**
+
+## Note
+
+Ensure you have the necessary dependencies installed and configured to run the application successfully.
+
+Feel free to explore and enhance the application as needed. Happy coding!
+
