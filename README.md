@@ -30,23 +30,7 @@ This repository contains a simple Bank Application implemented in C# with ADO.NE
   - User-defined exception for insufficient balance in `SavingAccount`.
   - Limiting the creation of only 5 account objects.
   - Exception handling for various scenarios.
-
-## Usage
- **Clone the Repository:**
-   ```bash
-   git clone https://github.com/your-username/Bank_application_with_ADO.git
-
-
-
-1. **Open in Visual Studio:**
-   - Open the solution in Visual Studio or your preferred C# development environment.
-
-2. **Build and Run:**
-   - Build and run the application.
-
-3. **Follow the Prompts:**
-   - Create accounts, perform transactions, and observe the notifications.
-
+    
 ## Implementation Details
 
 - **ADO.NET is used for data storage.**
@@ -59,3 +43,7 @@ Ensure you have the necessary dependencies installed and configured to run the a
 
 Feel free to explore and enhance the application as needed. Happy coding!
 
+## Usage
+ **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/Bank_application_with_ADO.git
