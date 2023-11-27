@@ -46,4 +46,4 @@ Feel free to explore and enhance the application as needed. Happy coding!
 ## Usage
  **Clone the Repository:**
    ```bash
-   git clone [https://github.com/your-username/Bank_application_with_ADO.git](https://github.com/devudubey15/BankApllicationWithADONET)https://github.com/devudubey15/BankApllicationWithADONET
+   git clone https://github.com/devudubey15/BankApllicationWithADONET
